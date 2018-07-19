@@ -28,12 +28,12 @@ function makeXmlFromOb (ob, parent, namespace) {
     }
     else {
      var child = XmlService.createElement(d, namespace);
-     parent.addContent (child);
+     parent.addContent(child);
     }
     // need to recurse if this is an object/array
     if (typeof ob[d] === 'object' ) {
       // the new parent is the newly created node
-      return makeXmlFromOb (ob[d] , child, namespace);
+      return makeXmlFromOb(ob[d] , child, namespace);
     }
     else { 
       child.setText(ob[d]);
@@ -86,11 +86,11 @@ function xmlElementToJson(element) {
 }
 
 /*
-* @param {Object} Array of Element objects
-* @param {string} Attribute to find
+* @param {Object} obj Array of Element objects
+* @param {string} attr Attribute to find
 * @returns {string}  The Value of the Attribute
 */
-function getElementValue(obj,attr){
+function getElementValue(obj, attr){
   for(var i in obj){
     if(obj[i].name == attr)
       return obj[i].value;
