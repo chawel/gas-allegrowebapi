@@ -12,9 +12,9 @@
 * @param {Namespace} namespace of output xml obj
 * @return {XmlElement} the parent for chaining
 */
-function makeXmlFromOb (ob, parent, namespace) {
+function makeXmlFromOb(ob, parent, namespace) {
   // this is recursive to deal with multi level JSON objects
-  Object.keys(ob).forEach (function (d,i) { 
+  Object.keys(ob).forEach(function (d,i) { 
     // if its an array, we repeat the key name of the parent
     if (Array.isArray(ob)) {
       if (i === 0 ) {
