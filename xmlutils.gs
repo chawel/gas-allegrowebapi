@@ -4,8 +4,6 @@
 * (may not be suitable for other purposes)
 */
 
-
-
 /**
 * Convert JSON to XML
 * http://ramblings.mcpher.com/Home/excelquirks/gassnips/jsonxml
@@ -17,7 +15,6 @@
 function makeXmlFromOb (ob, parent, namespace) {
   // this is recursive to deal with multi level JSON objects
   Object.keys(ob).forEach (function (d,i) { 
-    
     // if its an array, we repeat the key name of the parent
     if (Array.isArray(ob)) {
       if (i === 0 ) {
@@ -33,19 +30,15 @@ function makeXmlFromOb (ob, parent, namespace) {
      var child = XmlService.createElement(d, namespace);
      parent.addContent (child);
     }
-    
     // need to recurse if this is an object/array
     if (typeof ob[d] === 'object' ) {
-      
       // the new parent is the newly created node
       return makeXmlFromOb (ob[d] , child, namespace);
     }
     else { 
       child.setText(ob[d]);
     }
-    
   });
-  
   return parent;
 }
 
@@ -71,7 +64,6 @@ function xmlToJson(xml) {
  */
 function xmlElementToJson(element) {
   var result = {};
-  
   // Child elements.
   element.getChildren().forEach(function(child) {
     var key = child.getName();
